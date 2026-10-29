@@ -18,7 +18,7 @@ def calculate_revenue_by_currency(transactions):
     successful_sums = {}
 
     for transaction in transactions:
-        if transaction == None:
+        if not transaction:
             continue
 
 
