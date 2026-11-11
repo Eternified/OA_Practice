@@ -96,7 +96,7 @@ def process_stripe_ledger(events: list[str]) -> dict[str, dict[str, int]]:
     return res
 
 
-mock_stripe_stream = [
+mock_stripe_stream = [ #This is my input
     "200,m_nike,CHARGE,10000,USD,tx_101",
     "210,m_nike,REFUND_REQUEST,3000,USD,tx_101",
     "220,m_nike,REFUND_REQUEST,4000,USD,tx_101",
@@ -104,8 +104,5 @@ mock_stripe_stream = [
     "190,m_nike,CHARGE,5000,EUR,tx_102",
     "240,m_nike,REFUND_SETTLED,0,USD,tx_101"
 ]
-
-# Expected output structure:
-# {"m_nike": {"EUR": {"available": 5000, "disputed": 0}, "USD": {"available": 3000, "disputed": 0}}}
 
 print(process_stripe_ledger(mock_stripe_stream))
